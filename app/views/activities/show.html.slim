@@ -50,6 +50,11 @@ section.activity-details
     .instructions
       == markdown @activity.instructions
 
+  / Show tags if exist, assuming that tags are the keys of the tags hstore column
+  - if @activity.tags?
+    - @activity.tags.each_key do |tag|
+      span class="label label-default" #{tag}
+
   - if teacher? && @activity.teacher_notes
     hr
     h3 = "Teacher Notes"
