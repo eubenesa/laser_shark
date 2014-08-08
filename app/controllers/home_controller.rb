@@ -5,7 +5,8 @@ class HomeController < ApplicationController
   def show
     if current_user
       redirect_to day_path('today')
-    else redirect_to welcome_path
+    else
+      redirect_to welcome_path
     end
 
   end

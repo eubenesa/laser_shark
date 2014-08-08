@@ -15,6 +15,10 @@ module UserAccountHelpers
       current_user { create(:user_for_auth) }
     end
 
+    def logged_in_student
+      current_user { create(:student) }
+    end
+
   end
 
   def login_as(user)

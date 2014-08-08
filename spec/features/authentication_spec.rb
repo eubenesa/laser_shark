@@ -38,7 +38,8 @@ describe 'Authentication' do
 
     it "redirects to home page (instead of registration page)" do
       visit github_session_path
-      expect(current_path).to eq(root_path)
+      #we're expecting a brand new, unprepped user to be redirected to the prep path
+      expect(current_path).to eq(prep_path)
     end
   end
 

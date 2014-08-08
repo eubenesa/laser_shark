@@ -32,4 +32,12 @@ describe Activity do
     activity.end_time.should eql 1210 
   end
 
+  it 'should allow you to add and remove tags' do
+
+    activity = create(:activity, :tags => { :foo => nil, :bar => nil} )
+
+
+
+  end
+
 end
