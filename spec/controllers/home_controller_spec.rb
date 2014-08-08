@@ -7,7 +7,7 @@ describe HomeController do
   describe "GET 'show'" do
     it "returns http success" do
       get 'show'
-      #somebody went and changed this- it now *always
+      # Somebody changed this- it now *always
       expect(response).to redirect_to( day_path('today') )
     end
   end

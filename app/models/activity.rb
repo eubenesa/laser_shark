@@ -1,14 +1,22 @@
 class Activity < ActiveRecord::Base
 
+  before_save :check_tags_commad
+
+  attr_accessor :tags_commad
+
   validates :name, presence: true, length: { maximum: 56 }
   validates :duration, numericality: { only_integer: true }
   validates :start_time, numericality: { only_integer: true }
-  validates :day, format: { with: /\A(w\dd\d)|(w\de)\z/, allow_blank: true }, :presence => true
+  validates :day, presence: true, format: { with: /\A(w\dd\d)|(w\de)\z/, allow_blank: true }
 
   scope :chronological, -> { order(:start_time) }
   scope :for_day, -> (day) { where(day: day) }
 
   after_create :update_instructions_from_gist
+
+  def check_tags_commad
+    #if tags_commad is not nil, then parse and stick into tags
+  end
 
   # Given the start_time and duration, return the end_time
   def end_time

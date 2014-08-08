@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PrepController do
 
-  #Added the student login because authentication is now required
+  # Added the student login because authentication is now required
   logged_in_student
 
   describe "GET 'show'" do
