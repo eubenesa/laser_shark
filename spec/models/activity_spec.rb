@@ -37,19 +37,18 @@ describe Activity do
     activity.tags[:foo] = true
     activity.tags[:bar] = true
     expect(activity.tags.keys).to include(:foo, :bar)
-    # expect(activity.save).to eq(true)
     retrieve_activity = Activity.find(activity.id)
     expect(retrieve_activity.tags.keys).to include("foo", "bar")
   end
 
-  # it "should allow you to remove tags" do
-  #   activity = create(:activity, tags: {:foo => true, :bar => true})
-  #   retrieve_activity = Activity.find(activity.id)
-  #   retrieve_activity.tags.delete("foo")
-  #   expect(retrieve_activity.tags["foo"]).to eq(nil)
-  #   expect(retrieve_activity.tags.keys).to include("bar")
-  #   expect(retrieve_activity.update(tags: nil)).to eq(true)
-  #   expect(activity.tags).to eq(nil)
-  # end
+  it "should allow you to remove tags" do
+    activity = create(:activity, tags: {:foo => true, :bar => true})
+    retrieve_activity = Activity.find(activity.id)
+    retrieve_activity.tags.delete("foo")
+    expect(retrieve_activity.tags["foo"]).to eq(nil)
+    expect(retrieve_activity.tags.keys).to include("bar")
+    expect(retrieve_activity.update(tags: nil)).to eq(true)
+    expect(retrieve_activity.tags).to eq(nil)
+  end
 
 end

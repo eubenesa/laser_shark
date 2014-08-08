@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ActivitiesController do
 
-  #test a get (premade activity)
+  # Test GET (premade activity)
   # describe 'GET /activity' do
 
   #   get :show, {
